@@ -17,7 +17,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtGui import QPixmap
 from iterator import Iterator
-from scraping import scraping
+from scraping import parser
 from copying_dataset import copying_dataset
 
 
@@ -67,7 +67,7 @@ class Example(QWidget):
         text_2, ok = QInputDialog.getText(self, "Input Dialog", "Сколько скачать")
         if ok and ok_:
 
-            self.create_image = scraping(str(text_1),int(text_2))
+            self.create_image = parser(str(text_1),int(text_2))
     
     def showDialog_1(self):
 
@@ -85,11 +85,8 @@ class Example(QWidget):
     def showDialog_3(self):
 
         
-        text_2, ok = QInputDialog.getText(self, "Input Dialog", "Введите новое название папки:")
-
-        if ok:
-
-            self.create_file = copying_dataset(str(self.folderpath),str(text_2))
+       text_2, _ =(QFileDialog.getSaveFileName(self, "Напишите название файла", filter=".csv"))
+       self.create_file = copying_dataset(str(self.folderpath),str(text_2))
 
     def showDialog_4(self):
 
