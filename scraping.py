@@ -8,7 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def scraping(typename: str, indexs: int):
+def scraping(typename: str, indexs=None):
 
     if not os.path.exists("dataset"):
         os.mkdir("dataset")
@@ -94,16 +94,10 @@ def check_images(typename: str):
 
     return indexs
 
-def main():
+def parser(typename, indexs):
 
-    scraping("cat")
-    scraping("dog")
+    scraping(typename)
 
-    indexs = check_images("cat")
-    scraping("cat", indexs)
+    indexs = check_images(typename)
+    scraping(typename, indexs)
 
-    indexs1 = check_images("dog")
-    scraping("dog", indexs1)
-
-if __name__ == "__main__":
-    main()
