@@ -57,16 +57,13 @@ class Example(QWidget):
 
     def showDialog_0(self):
         text_1, ok_ = QInputDialog.getText(self, "Input Dialog", "Какие картинки скачать?")
-        text_2, ok = QInputDialog.getText(self, "Input Dialog", "Сколько скачать")
-        if ok and ok_:
+        if ok_:
 
-            self.create_image = parser(str(text_1),int(text_2))
+            self.create_image = parser(str(text_1))
     
     def showDialog_1(self):
 
-        
         text_2, _ =(QFileDialog.getSaveFileName(self, "Напишите название файла", filter=".csv"))
-
         self.create_file = creating_csv(str(self.folderpath),str(text_2))
 
     def showDialog_2(self):
