@@ -51,16 +51,9 @@ class Example(QWidget):
         self.label.move(50, 220)
 
         self.resize(800, 600)
-        self.center()
         self.setWindowTitle("lab3")
         self.show()
         self.folderpath = QFileDialog.getExistingDirectory(self, 'Select Folder')
-
-    def center(self):
-        qr = self.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
-        qr.moveCenter(cp)
-        self.move(qr.topLeft())
 
     def showDialog_0(self):
         text_1, ok_ = QInputDialog.getText(self, "Input Dialog", "Какие картинки скачать?")
@@ -84,7 +77,6 @@ class Example(QWidget):
 
     def showDialog_3(self):
 
-        
        text_2, _ =(QFileDialog.getSaveFileName(self, "Напишите название файла", filter=".csv"))
        self.create_file = copying_dataset(str(self.folderpath),str(text_2))
 
