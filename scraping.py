@@ -94,7 +94,7 @@ def check_images(typename: str):
 
     return indexs
 
-def parser(typename, indexs):
+def parser(typename):
 
     scraping(typename)
 
